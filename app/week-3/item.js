@@ -1,18 +1,10 @@
 
-function Item({ name }, {quantity}, {category}) {
+export default function Item({ name, quantity, category}) {
     return (
-        <li>
-            {name}, {quantity}, {category}
+        <li className="border border-gray-300 rounded-md p-2 mb-2 ml-10 mr-10">
+            {name} <br></br>
+            Quantity: {quantity} <br></br>
+            Category: {category}
         </li>
     )
-}
-
-export default function ItemList() {
-    return (
-        <div>
-            <ul className="list-disc list-inside">
-                <Item name="Apples" quantity="2 lbs" category="Fruit" />
-            </ul>
-        </div>
-    );
 }
