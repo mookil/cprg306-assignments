@@ -23,11 +23,16 @@ export default function NewItem() {
         }
     }
 
+
+
+
+
     return (
         <div className="flex justify-center">
             <p className=""> Quantity: {quantity} </p>
             <button onClick={decrement} className={buttonClassName}>-</button>
             <button onClick={increment} className={buttonClassName}>+</button>
+
         </div>
     )
 
