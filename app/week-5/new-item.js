@@ -43,6 +43,12 @@ export default function NewItem() {
         setCategory(event.target.value);
     }
 
+    const resetForm = () => {
+        setQuantity(1);
+        setName("");
+        setCategory("produce");
+    }
+
     /**
      * Creates an item with the current values of name, quantity, and category.
      * Logs the item object to the console.
@@ -52,26 +58,47 @@ export default function NewItem() {
     const handleSubmit = (event) => {
         // preventDefault() stops the default submission request
         event.preventDefault();
-        // let newItem = {
-        //     name: name,
-        //     quantity: quantity,
-        //     category: category
-        // }
-        // console.log(`Item ${newItem.name} is being registered.`);
-        // alert(`Item ${newItem.name} is being registered.`);
+        let newItem = {
+            name: name,
+            quantity: quantity,
+            category: category
+        }
+        console.log(`Item ${newItem.name} is being registered.`);
+        alert(`Item [${newItem.name}] Category: [${newItem.category}] Quantity: [${newItem.quantity}] is being registered.`);
+        resetForm();
     }
 
     return (
         <div className="flex justify-center flex-col m-40 mt-0">
             <form className="p-2 m-4 bg-slate-900 text-white max-w-sm w-full"
             onSubmit={handleSubmit}>
-                <input type="text" placeholder="Item Name" 
-                onChange={changeName} 
+                {/* This section is the Item Name section. */}
+                <div>
+                    <input required type="text" placeholder="Item Name" 
+                onChange={changeName} value={name} 
                 className="w-full mt-1 border-2 border-gray-300 p-2 rounded-lg text-white font-sans"></input>
+                </div>
+
+                {/* This section is the Category Selection section. */}
+                <div className="w-full mt-1 border-2 border-gray-300 p-2 rounded-lg text-white font-sans">
+                    <select className="w-full" onChange={changeCategory}>
+                        <option value="produce" className="text-black">Produce</option>
+                        <option value="dairy" className="text-black">Dairy</option>
+                        <option value="bakery" className="text-black">Bakery</option>
+                        <option value="frozenFoods" className="text-black">Frozen Foods</option>
+                        <option value="cannedGoods" className="text-black">Canned Goods</option>
+                        <option value="dryGoods" className="text-black">Dry Goods</option>
+                        <option value="beverages" className="text-black">Beverages</option>
+                        <option value="snacks" className="text-black">Snacks</option>
+                        <option value="household" className="text-black">Household</option>
+                        <option value="other" className="text-black">Other</option>
+                    </select>
+                </div>
+                
            
                 {/* This section is the Quantity Decrement/Increment section. */}
                 <div> 
-                    <p className="text-white"> Quantity: {quantity} </p>
+                    <p className="text-white" value={quantity}> Quantity: {quantity} </p>
                     <button type="button" onClick={decrement} className={buttonClassName}>-</button>
                     <button type="button" onClick={increment} className={buttonClassName}>+</button>
                 </div>
