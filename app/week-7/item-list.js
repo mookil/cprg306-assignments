@@ -5,12 +5,14 @@ import items from './items.json';
 import { useState } from 'react';
 import Item from './item';
 
-export default function ItemList() {
+/**
+ * This component is for displaying all the items in items.json
+ * by reading them in as an item.js.
+ * @returns 
+ */
+export default function ItemList({itemsArray}) {
     // Sort By useState
     let [sortBy, setSortBy] = useState("name");
-
-    // Array of items
-    const listItems = items;
 
     // Method to handle onChange for sortBy
     const handleSortChange = (event) => {
@@ -19,7 +21,7 @@ export default function ItemList() {
 
     // Sorting Filter method
     if (sortBy === "name") {
-        listItems.sort( (a, b) => {
+        itemsArray.sort( (a, b) => {
             if ( isNaN(parseInt( a[sortBy]))) {
                 // Alphabetical Name Sorting
                 let nameA = a.name.toUpperCase();
@@ -31,7 +33,7 @@ export default function ItemList() {
         })
     } else if (sortBy === "category") {
         // Sort by Category
-        listItems.sort( (a, b) => {
+        itemsArray.sort( (a, b) => {
             if ( isNaN(parseInt( a[sortBy]))) {
                 // Alphabetical Category Sorting
                 let categoryA = a.category.toUpperCase();
@@ -59,8 +61,8 @@ export default function ItemList() {
             
             {/* List of Items */}
             <ul>
-                {listItems.map((item) => (
-                    <Item key={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+                {itemsArray.map((item) => (
+                    <Item key={item.id} id={item.id} name={item.name} quantity={item.quantity} category={item.category} />
                 ))}
                 </ul>
         </div>

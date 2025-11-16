@@ -4,11 +4,17 @@ import React, {useState} from 'react'
 import Link from 'next/link'
 import Item from './item'
 
-
+/**
+ * This component is the menu for adding a new item to the 
+ * item-list.
+ * @param {*} props - meant to be used for the handleAddItem event handler in page.js
+ * @returns 
+ */
 export default function NewItem(props) {
 
     // Variables
     // ====================================
+    const [itemid, setItemId] = useState(""); // id of an item
     const [quantity, setQuantity] = useState(1); // Current quantity of item
     const [name, setName] = useState(""); // Name of the current item
     const [category, setCategory] = useState("produce"); // Category of the current item
@@ -35,6 +41,10 @@ export default function NewItem(props) {
         }
     }
 
+    const changeId = (event) => {
+        setItemId(event.target.value);
+    }
+
     // Change the name of the current item
     const changeName = (event) => {
         setName(event.target.value);
@@ -46,6 +56,7 @@ export default function NewItem(props) {
     }
 
     const resetForm = () => {
+        setItemId("");
         setQuantity(1);
         setName("");
         setCategory("produce");
@@ -61,19 +72,28 @@ export default function NewItem(props) {
         // preventDefault() stops the default submission request
         event.preventDefault();
         let newItem = {
+            id: itemid,
             name: name,
             quantity: quantity,
             category: category
         }
         console.log(`Item ${newItem.name} is being registered.`);
+        onAddItem(newItem); // call the onAddItem function
         alert(`Item [${newItem.name}] Category: [${newItem.category}] Quantity: [${newItem.quantity}] is being registered.`);
         resetForm();
     }
 
     return (
-        <div className="flex justify-center flex-col m-40 mt-0">
+        <div className="flex justify-center flex-col">
             <form className="p-2 m-4 bg-slate-900 text-white max-w-sm w-full"
             onSubmit={handleSubmit}>
+                {/* This section is the Id section. */}
+                <div>
+                    <input required type="text" placeholder="ID" 
+                onChange={changeId} value={itemid} 
+                className="w-full mt-1 border-2 border-gray-300 p-2 rounded-lg text-white font-sans"></input>
+                </div>
+
                 {/* This section is the Item Name section. */}
                 <div>
                     <input required type="text" placeholder="Item Name" 
@@ -111,14 +131,6 @@ export default function NewItem(props) {
                     className={buttonClassName}>Submit</button>
                 </div>
              </form>
-
-             <div>
-                    <p>debug section</p>
-                    <p>Item Name: {name}</p>
-                    <p>Quantity: {quantity}</p>
-                    <p>Category: {category}</p>
-
-                </div>
         </div>
     )
 
