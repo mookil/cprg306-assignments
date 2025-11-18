@@ -84,7 +84,7 @@ export default function NewItem(props) {
     }
 
     return (
-        <div className="flex justify-center flex-col">
+        <div className="flex justify-center flex-col items-center">
             <form className="p-2 m-4 bg-slate-900 text-white max-w-sm w-full"
             onSubmit={handleSubmit}>
                 {/* This section is the Id section. */}

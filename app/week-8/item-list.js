@@ -46,7 +46,7 @@ export default function ItemList({itemsArray}) {
     }
 
     // Button Style
-    const buttonStyle = (sortBy === "name") ? "pl-10 pb-4 bg-red-300" : "pl-10 pb-4 bg-orange-300";
+    const buttonStyle = (sortBy === "name") ? "pl-10 p-2 mb-4 bg-red-500" : "pl-10 p-2 mb-4 bg-orange-500";
 
     return(
         <div>
@@ -54,8 +54,8 @@ export default function ItemList({itemsArray}) {
             <div className={buttonStyle}>
                 <label>Sort by: </label>
                 <select onChange={handleSortChange}>
-                    <option value="name">Name</option>
-                    <option value="category">Category</option>
+                    <option className={"text-black"} value="name">Name</option>
+                    <option className={"text-black"} value="category">Category</option>
                 </select>
             </div>
             

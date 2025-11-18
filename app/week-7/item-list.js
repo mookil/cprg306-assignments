@@ -46,7 +46,7 @@ export default function ItemList({itemsArray}) {
     }
 
     // Button Style
-    const buttonStyle = (sortBy === "name") ? "pl-10 pb-4 bg-red-300" : "pl-10 pb-4 bg-orange-300";
+    const buttonStyle = (sortBy === "name") ? "pl-10 p-2 mb-4 bg-red-500" : "pl-10 p-2 mb-4 bg-orange-500";
 
     return(
         <div>

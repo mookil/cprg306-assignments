@@ -30,9 +30,25 @@ export default function Page() {
 
     return (
         <main className="bg-blue-950">
-            <h1 className="flex justify-center text-3xl mb-4">Shopping List</h1>
-            <NewItem onAddItem={handleAddItem}/>
-            <ItemList itemsArray={items}/>
+            {/* Header Section */}
+            <div>
+                <p>This is Week 8!!</p>
+                <h1 className="flex justify-center text-3xl mb-4">Shopping List</h1>
+            </div>
+            
+
+            {/* List + Add new Item */}
+            <div>
+                <NewItem onAddItem={handleAddItem}/>
+                <ItemList itemsArray={items}/>
+            </div>
+            
+
+            {/* Oguri Cap */}
+            <div className="flex justify-center">
+                <img src="./ogurifat.jpg" alt="oguri fat.jpg" className="w-50 h-50 m-10 rounded-full"></img>
+            </div>
+
         </main>
     );
 }
