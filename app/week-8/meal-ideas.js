@@ -37,7 +37,6 @@ export default function MealIdeas({ingredient}) {
         } catch (err) {
             console.log("error fetching meal ideas: ", err);
         }
-        
     }
 
     useEffect( () => {
