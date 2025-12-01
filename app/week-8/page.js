@@ -4,6 +4,7 @@ import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json"
 import { useState } from "react";
+import MealIdeas from "./meal-ideas";
 
 /**
  * Main Page function for Week 8 assignment
@@ -16,6 +17,8 @@ integrating a third-party API to suggest meal ideas.
  * @returns 
  */
 export default function Page() {
+
+    let [ingredient, setIngredient] = useState("")
 
     // An array of items read in from items.json
     let  [items, setItems] = useState(
@@ -36,11 +39,16 @@ export default function Page() {
                 <h1 className="flex justify-center text-3xl mb-4">Shopping List</h1>
             </div>
             
+            <NewItem onAddItem={handleAddItem}/>
 
             {/* List + Add new Item */}
-            <div>
-                <NewItem onAddItem={handleAddItem}/>
-                <ItemList itemsArray={items}/>
+            <div className="flex">
+                <div className="flex-1">
+                    <ItemList itemsArray={items} setIngredient={setIngredient}/>
+                </div>
+                <div className="flex-1">
+                    <MealIdeas ingredient={ingredient}/>
+                </div>
             </div>
             
 

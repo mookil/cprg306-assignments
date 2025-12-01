@@ -10,7 +10,7 @@ import Item from './item';
  * by reading them in as an item.js.
  * @returns 
  */
-export default function ItemList({itemsArray}) {
+export default function ItemList({itemsArray, setIngredient}) {
     // Sort By useState
     let [sortBy, setSortBy] = useState("name");
 
@@ -48,6 +48,10 @@ export default function ItemList({itemsArray}) {
     // Button Style
     const buttonStyle = (sortBy === "name") ? "pl-10 p-2 mb-4 bg-red-500" : "pl-10 p-2 mb-4 bg-orange-500";
 
+    function onSelect(name) {
+        setIngredient(name)
+    }
+
     return(
         <div>
             {/* Sorting Methods */}
@@ -62,7 +66,8 @@ export default function ItemList({itemsArray}) {
             {/* List of Items */}
             <ul>
                 {itemsArray.map((item) => (
-                    <Item key={item.id} id={item.id} name={item.name} quantity={item.quantity} category={item.category} />
+                    <Item key={item.id} id={item.id} name={item.name} quantity={item.quantity} category={item.category}
+                    onSelect={onSelect} />
                 ))}
                 </ul>
         </div>
