@@ -39,7 +39,7 @@ export default function Page() {
         </li>
 
         <li>
-          <Link href="./week-9" className={linkClassName}>Week 9</Link>
+          <Link href="./week-9/shopping-list" className={linkClassName}>Week 9</Link>
         </li>
 
       </ul>
