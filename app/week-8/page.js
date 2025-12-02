@@ -18,7 +18,7 @@ integrating a third-party API to suggest meal ideas.
  */
 export default function Page() {
 
-    let [ingredient, setIngredient] = useState("")
+    let [ingredient, setIngredient] = useState("chicken")
 
     // An array of items read in from items.json
     let  [items, setItems] = useState(
