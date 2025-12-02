@@ -38,6 +38,10 @@ export default function Page() {
           <Link href="./week-8" className={linkClassName}>Week 8</Link>
         </li>
 
+        <li>
+          <Link href="./week-9" className={linkClassName}>Week 9</Link>
+        </li>
+
       </ul>
 
       
