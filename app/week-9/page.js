@@ -1,12 +1,12 @@
 
 "use client"
 import React from 'react'
-import { useUserAuth } from './shopping-list/_utils/auth-context'
+import { useUserAuth } from './_utils/auth-context'
 
 
 
 // Essentially, this is a login page for the user to log in.
-function page() {
+function Page() {
 
     const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
 
@@ -37,4 +37,4 @@ function page() {
   )
 }
 
-export default page
+export default Page
