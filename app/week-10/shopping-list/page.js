@@ -3,8 +3,9 @@
 import ItemList from "./item-list";
 import NewItem from "./new-item";
 import itemsData from "./items.json"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MealIdeas from "./meal-ideas";
+import { getItems, addItem } from "./shopping-list-service";
 
 /**
  * Main Page function for Week 8 assignment
